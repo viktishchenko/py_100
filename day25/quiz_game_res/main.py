@@ -16,22 +16,41 @@ city.pu()
 
 pd = pandas
 data = pd.read_csv('day25/quiz_game_res/50_states.csv')
-# print(data)
-# print(data['state'][0]) # Alabama
-# print(data['x'][0]) # 139
-# print(data['y'][0]) # -77
+all_states = data.state.to_list()
+print(f'all_states>>> {all_states}')
+guessed_states = []
+learn_states = all_states
 
 game_is_on = True
 
 while game_is_on:
 
-  user_answer = screen.textinput('Gess the state', prompt='What\'s another state\'s name?')
+  user_answer = screen.textinput(title=f'{len(guessed_states)}/50 States Correct', prompt='What\'s another state\'s name?').title()
 
-  if user_answer in data['state'].to_list():
+  if user_answer=='Exit':
+    get_learn()
+    break
+    
+  def get_learn():
+    pd.DataFrame(learn_states).to_csv('day25/quiz_game_res/learn_sates.csv')
+    
+    
+
+
+  print(f'user_answer>>> {user_answer}')
+
+  if user_answer in all_states:
+    guessed_states.append(user_answer)
     city_data = data[data.state==user_answer]
-    # city_data = data[data['state']==user_answer]
-    city.goto(city_data.x.iloc[0],city_data.y.iloc[0])
+    city.goto(city_data.x.item(),city_data.y.item())
     city.write(user_answer, align='center', font=('Arial', 12, 'normal'))
+
+  # STATE TO LEARN
+  for state in all_states:
+    if state in guessed_states:
+      learn_states.remove(state)
+    
+
 
   if user_answer not in data['state'].to_list():
     print('Bye!')
@@ -39,6 +58,7 @@ while game_is_on:
     city.goto(0,0)
     city.color('red')
     city.write('Wrong answer!', align='center', font=('Arial', 18, 'bold'))
+    get_learn()
     
 
 
@@ -47,6 +67,6 @@ while game_is_on:
 
 # turtle.onscreenclick(get_coordinates.mouse_click_coor)
 # KEEP SCREEN OPEN
-turtle.mainloop()
+# turtle.mainloop()
 # CLOSE SCREEN ON CLICK
 # screen.exitonclick()

@@ -28,6 +28,14 @@ while game_is_on:
   user_answer = screen.textinput(title=f'{len(guessed_states)}/50 States Correct', prompt='What\'s another state\'s name?').title()
 
   if user_answer=='Exit':
+    # OR
+    # missing_states = []
+    # for state in all_states:
+    #   if state not in guessed_states:
+    #     missing_states.append(state)
+    # new_data = pd.DataFrame(missing_states)
+    # new_data.to_csv('day25/quiz_game_res/learn_sates.csv')
+
     get_learn()
     break
     

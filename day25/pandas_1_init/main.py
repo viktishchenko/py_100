@@ -146,6 +146,16 @@ df = pd.DataFrame({'population': [59000000, 65000000, 434000,
                          
 
 print(df)
+  #           population      GDP alpha-2
+  # Italy       59000000  1937894      IT
+  # France      65000000  2583560      FR
+  # Malta         434000    12011      MT
+  # Maldives      434000     4520      MV
+  # Brunei        434000    12128      BN
+  # Iceland       337000    17036      IS
+  # Nauru          11300      182      NR
+  # Tuvalu         11300       38      TV
+  # Anguilla       11300      311      AI
 
 # print(df.nlargest(3,'population', keep='last'))
 

@@ -15,9 +15,9 @@
 # new_list = [n + 1 for n in number]
 
 # new_list = [n +1 for n in [1,2,3]] # new_list>>> [2, 3, 4]
-# name = 'Viktor'
-# new_list = [letter for letter in name] # new_list>>> ['V','i','k','t','o','r']
-# print(f'new_list>>> {new_list}')
+name = 'Viktor'
+new_list = [letter for letter in name] # new_list>>> ['V','i','k','t','o','r']
+print(f'new_list>>> {new_list}')
 
 # double_num = [num*2 for num in range(1,5)] # double_num>>> [2, 4, 6, 8]
 

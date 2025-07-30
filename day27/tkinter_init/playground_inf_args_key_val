@@ -1,0 +1,50 @@
+def add(*args):
+  sum = 0
+  for arg in args:
+    sum += arg
+  return sum
+
+print(add(2,3,4,5,6,7)) # 27
+
+def calculate(n, **kwargs):
+  # print(f'type[kwargs]>>> {type(kwargs)}') # <class 'dict'>
+  # num_add = kwargs['add'] + n
+  # print(f'num_add>>> {num_add}') # 8
+  # num_multiply = kwargs['multiply'] * n
+  # print(f'num_multiply>>> {num_multiply}') # 25
+  # n += kwargs['add']
+  # n *= kwargs['multiply']
+  # print(f'n>>> {n}') # 40
+  sum = 0
+  for key,value in kwargs.items():
+    sum += value + n
+    # print(f'key,value>>> {key,value}')
+    # key,value>>> ('add', 3)
+    # key,value>>> ('multiply', 5)
+  return sum # 18
+
+
+print(calculate(5,add=3,multiply=5)) # 18
+
+class Car():
+  def __init__(self,**kw):
+    self.make = kw['make']
+    self.model = kw['model']
+
+my_new_car = Car(make='Hyundai', model='Custin')
+
+print(f'my_new_car>>> {my_new_car.make} {my_new_car.model}') # Hyundai Custin
+
+# OPTIONAL ARGUMENTS
+# ——————————————————
+
+class Car():
+  def __init__(self,**kw):
+    self.make = kw.get('make')
+    self.model = kw.get('model')
+    self.color = kw.get('color')
+    self.seats = kw.get('seats')
+
+my_new_car = Car(make='Toyota', model='Alphard')
+
+print(f'my_new_car>>> {my_new_car.make} {my_new_car.model}') # Toyota Alphard

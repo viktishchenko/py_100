@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / compiled files
+__pycache__/
+*.pyc
+*.pyd
+*.so
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Distribution / build outputs
+dist/
+build/
+*.egg-info/
+
+# IDE-specific files
+.idea/
+.vscode/
+*.swp # Vim swap files
+*.bak # Backup files
+
+# Log files and temporary files
+*.log
+*.tmp
+*.sqlite3 # SQLite database files (if not intended for version control)
+
+# Sensitive information (example - adjust as needed)
+.env
+config.ini

@@ -4,7 +4,7 @@ import pandas
 
 screen = turtle.Screen()
 screen.title('States Game (US)')
-image = 'day25/quiz_game_res/blank_states_img.gif'
+image = 'int/day25/quiz_game_res/blank_states_img.gif'
 screen.addshape(image)
 
 
@@ -15,7 +15,7 @@ city.hideturtle()
 city.pu()
 
 pd = pandas
-data = pd.read_csv('day25/quiz_game_res/50_states.csv')
+data = pd.read_csv('int/day25/quiz_game_res/50_states.csv')
 all_states = data.state.to_list()
 print(f'all_states>>> {all_states}')
 guessed_states = []
@@ -34,13 +34,13 @@ while game_is_on:
     #   if state not in guessed_states:
     #     missing_states.append(state)
     # new_data = pd.DataFrame(missing_states)
-    # new_data.to_csv('day25/quiz_game_res/learn_sates.csv')
+    # new_data.to_csv('int/day25/quiz_game_res/learn_sates.csv')
 
     get_learn()
     break
     
   def get_learn():
-    pd.DataFrame(learn_states).to_csv('day25/quiz_game_res/learn_sates.csv')
+    pd.DataFrame(learn_states).to_csv('int/day25/quiz_game_res/learn_sates.csv')
     
     
 

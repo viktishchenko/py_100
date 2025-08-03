@@ -4,14 +4,14 @@ import pandas as pd
 
 screen = turtle.Screen()
 screen.title("US States Game")
-image = "day25/quiz_game_res/blank_states_img.gif"
+image = "int/day25/quiz_game_res/blank_states_img.gif"
 screen.addshape(image)
 
 
 turtle.shape(image)
 
 
-data = pd.read_csv("day25/quiz_game_res/50_states.csv")
+data = pd.read_csv("int/day25/quiz_game_res/50_states.csv")
 all_states = data.state.to_list()
 guessed_states = []
 

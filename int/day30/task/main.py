@@ -8,7 +8,30 @@ import json
 WHITE = "#FFFFFF"
 FONT_NAME = ('New Roman', 14, 'normal')
 FONT_INPUT = ('New Roman', 12, 'normal')
-# FONT_NAME = 'Courier'
+
+# ---------------------------- SEARCH FUNCTIONALITY ------------------------------- #
+
+def search_passdata():
+  search_term = web_input.get().lower()
+  try:
+    output_path = 'int/day30/task/data.json'
+    with open(output_path, 'r') as new_file:
+      datax = json.load(new_file)
+
+  except:
+    messagebox.showerror(title='Error',message='Sorry, data file was not found.')
+  else:
+      for key in datax.keys():
+        if search_term == key.lower():
+          info = datax[search_term.title()]
+          title_datas = search_term.title()
+          email_datas = info['email']
+          pas_datas = info['password']
+          messagebox.showinfo(title=f'{title_datas}', message=f'Email: {email_datas}\nPassword: {pas_datas}')
+          break
+      if search_term.title() not in datax:
+        messagebox.showinfo(title='Not found',message='No matches found')
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 def generate_password():
@@ -32,7 +55,7 @@ def generate_password():
 
 def gen_passdata():
   try:
-    site = web_input.get()
+    site = web_input.get().title()
     email = email_input.get()
     psd = pass_input.get()
     new_data = {
@@ -52,7 +75,7 @@ def gen_passdata():
       with open(output_path, 'r') as new_file:
         data = json.load(new_file )
 
-    except:
+    except FileNotFoundError:
       with open(output_path, 'w') as new_file:
         json.dump(new_data, new_file, indent=4)
 
@@ -66,6 +89,8 @@ def gen_passdata():
       pass_input.delete(0, END)
       email_input.delete(0, END)
       web_input.focus()
+
+      messagebox.showinfo(title='Success', message='Your data was added!')
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -87,22 +112,24 @@ email_label.grid(column=0,row=2)
 pass_label.grid(column=0,row=3)
 
 # Input
-web_input = Entry(width=35,font=FONT_NAME,border=2)
+web_input = Entry(width=21,font=FONT_NAME,border=2)
 web_input.focus()
 email_input = Entry(width=35, font=FONT_NAME,border=2)
 email_input.insert(0,'test@mail.com')
 pass_input = Entry(width=21, font=FONT_NAME,border=2)
 
-web_input.grid(column=1,row=1,columnspan=2,pady=5)
+web_input.grid(column=1,row=1,pady=5)
 email_input.grid(column=1,row=2,columnspan=2,pady=5)
 pass_input.grid(column=1,row=3,pady=5)
 
 # Button
 gen_button = Button(text='Generate Password', font=FONT_INPUT, command=generate_password)
 add_button = Button(text='Add', width=42, font=FONT_INPUT, command=gen_passdata)
+search_button = Button(text='Search', width=16, font=FONT_INPUT, command=search_passdata)
 
 gen_button.grid(column=2,row=3,pady=5)
 add_button.grid(column=1,row=4,columnspan=2, pady=5)
+search_button.grid(column=2,row=1, pady=5)
 
 
 

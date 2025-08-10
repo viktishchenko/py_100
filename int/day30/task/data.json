@@ -1,14 +1,18 @@
 {
     "Amazon": {
         "email": "amazon@mail.com",
-        "password": "Draf2$w9&57PHc"
+        "password": "hQa0vm&K2V)9Q"
     },
     "Ebay": {
         "email": "ebay@mail.com",
-        "password": "lD24YkT0uxX*6)Z"
+        "password": "A4E+qAA2$)zCv20Tw"
     },
     "Reddit": {
         "email": "reddit@mail.com",
-        "password": "C&Cb0(Zm3hXTuK"
+        "password": "d%*1lN8i2sHe2gZ"
+    },
+    "Github": {
+        "email": "github@mail.com",
+        "password": "mH59g(+GkSSfo"
     }
 }

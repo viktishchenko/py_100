@@ -47,35 +47,25 @@ def gen_passdata():
   if len(site) == 0 or len(email) == 0 or len(psd) == 0:
     messagebox.showerror(title='ERROR', message='Please fill all of the fields!')
   else:
-    output_path = 'int/day30/task/data.json'
-    with open(output_path, 'r') as new_file:
-      # # WRITE DATA
-    # with open(output_path, 'w') as new_file:
-    #   # #____________________________________________
-    #   # # human read json.value: indent=4
-    #   json.dump(new_data, new_file, indent=4)
+    try:
+      output_path = 'int/day30/task/data.json'
+      with open(output_path, 'r') as new_file:
+        data = json.load(new_file )
 
-      # READ DATA FROM FILE
-      # #______________________________________________
-      # read_file = json.load(new_file )
-      # print(read_file) # {'Amazon': {'email': 'amazon@mail.com', 'password': '0!+5yblU4Aw5iU!r'}}
-      # # print(type(read_file)) # <class 'dict'>
+    except:
+      with open(output_path, 'w') as new_file:
+        json.dump(new_data, new_file, indent=4)
 
-      # UPDATE DATA FROM FILE
-      # #______________________________________________
-      # READING OLD DATA
-      data = json.load(new_file )
-      # UPDATING OLD DATA WITH NEW DATA
+    else:
       data.update(new_data)
-      # SAVING UPDEATING DATA
-    with open(output_path, 'w') as new_file:
-      json.dump(data, new_file, indent=4)
-
+      with open(output_path, 'w') as new_file:
+        json.dump(data, new_file, indent=4)
     
-    web_input.delete(0, END)
-    pass_input.delete(0, END)
-    email_input.delete(0, END)
-    web_input.focus()
+    finally:
+      web_input.delete(0, END)
+      pass_input.delete(0, END)
+      email_input.delete(0, END)
+      web_input.focus()
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()

@@ -12,7 +12,7 @@ FONT_INPUT = ('New Roman', 12, 'normal')
 # ---------------------------- SEARCH FUNCTIONALITY ------------------------------- #
 
 def search_passdata():
-  search_term = web_input.get().lower()
+  search_term = web_input.get().title()
   try:
     output_path = 'int/day30/task/data.json'
     with open(output_path, 'r') as new_file:
@@ -21,16 +21,23 @@ def search_passdata():
   except:
     messagebox.showerror(title='Error',message='Sorry, data file was not found.')
   else:
-      for key in datax.keys():
-        if search_term == key.lower():
-          info = datax[search_term.title()]
-          title_datas = search_term.title()
-          email_datas = info['email']
-          pas_datas = info['password']
-          messagebox.showinfo(title=f'{title_datas}', message=f'Email: {email_datas}\nPassword: {pas_datas}')
-          break
-      if search_term.title() not in datax:
-        messagebox.showinfo(title='Not found',message='No matches found')
+    if search_term in datax:
+      email = datax[search_term]['email']
+      password = datax[search_term]['password']
+      messagebox.showinfo(title=f'{search_term}', message=f'Email: {email}\nPassword: {password}')
+    else:
+      messagebox.showinfo(title='Not found',message='No matches found')
+
+      # for key in datax.keys():
+      #   if search_term == key.lower():
+      #     info = datax[search_term.title()]
+      #     title_datas = search_term.title()
+      #     email_datas = info['email']
+      #     pas_datas = info['password']
+      #     messagebox.showinfo(title=f'{title_datas}', message=f'Email: {email_datas}\nPassword: {pas_datas}')
+      #     break
+      # if search_term.title() not in datax:
+      #   messagebox.showinfo(title='Not found',message='No matches found')
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 

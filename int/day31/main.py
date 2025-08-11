@@ -4,7 +4,14 @@ import random
 
 BACKGROUND_COLOR = "#B1DDC6"
 
-data = pandas.read_csv('int/day31/data/data_ru.csv')
+try:
+  data = pandas.read_csv('int/day31/data/words_to_learn.csv')
+except FileNotFoundError:
+  original_data = pandas.read_csv('int/day31/data/data_ru.csv')
+  to_learn = original_data.to_dict(orient='records')
+else:
+  to_learn = data.to_dict(orient='records')
+# data = pandas.read_csv('int/day31/data/data_ru.csv')
 #          English          Russian
 # 0           the               то
 # ...         ...              ...
@@ -14,15 +21,15 @@ data = pandas.read_csv('int/day31/data/data_ru.csv')
 
 # pandas.DataFrame.to_dict
 # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_dict.html
-# card_data = data.to_dict() # {'English': {0: 'the', ... 1046: 'Paul'}, 'Russian': {0: 'то', ... 1046: 'Пол'}}
-card_data = data.to_dict(orient='records') # [{'English': 'the', 'Russian': 'то'}, ...  {'English': 'Paul', 'Russian': 'Пол'}]
+# to_learn = data.to_dict() # {'English': {0: 'the', ... 1046: 'Paul'}, 'Russian': {0: 'то', ... 1046: 'Пол'}}
+# to_learn = data.to_dict(orient='records') # [{'English': 'the', 'Russian': 'то'}, ...  {'English': 'Paul', 'Russian': 'Пол'}]
 
 current_card ={}
 
 def next_card():
   global current_card, flip_timer
   window.after_cancel(flip_timer)
-  current_card = random.choice(card_data)
+  current_card = random.choice(to_learn)
   canvas.itemconfig(card_title, text='English', fill='black')
   canvas.itemconfig(card_word, text=current_card['English'], fill='black')
   canvas.itemconfig(card_background, image=card_front_img)
@@ -32,6 +39,17 @@ def flip_card():
   canvas.itemconfig(card_title, text='Русский', fill='white')
   canvas.itemconfig(card_word, text=current_card['Russian'], fill='white')
   canvas.itemconfig(card_background, image=card_back_img)
+
+def is_known():
+  '''удаляем из списка известные слова,
+     запускаем следующую карточку'''
+  to_learn.remove(current_card)
+  data = pandas.DataFrame(to_learn)
+  # 
+  data.to_csv('int/day31/data/words_to_learn.csv', index=False)
+  print(len(to_learn))
+
+  next_card()
 
 
 window = Tk()
@@ -56,7 +74,7 @@ unknown_btn = Button(image=cross_img, command=next_card)
 unknown_btn.grid(row=1, column=0)
 
 check_img = PhotoImage(file='int/day31/images/right.png')
-known_btn = Button(image=check_img, command=next_card)
+known_btn = Button(image=check_img, command=is_known)
 known_btn.grid(row=1, column=1)
 
 

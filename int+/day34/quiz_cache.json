@@ -1,11 +1,31 @@
 {
-  "timestamp": "2025-08-17T16:41:46.118169",
+  "timestamp": "2025-08-18T16:51:51.953677",
   "questions": [
     {
       "type": "boolean",
+      "difficulty": "hard",
+      "category": "Entertainment: Video Games",
+      "question": "In \"Call Of Duty: World At War\", the first appearance of the \"PPSH-41\" in \"Zombies\" was in the map \"Der Riese\".",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    },
+    {
+      "type": "boolean",
       "difficulty": "easy",
-      "category": "Science: Computers",
-      "question": "Linus Torvalds created Linux and Git.",
+      "category": "Entertainment: Music",
+      "question": "A Saxophone is a brass instrument.",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    },
+    {
+      "type": "boolean",
+      "difficulty": "medium",
+      "category": "Entertainment: Television",
+      "question": "An episode of \"The Simpsons\" is dedicated to Moe Szyslak's bar rag.",
       "correct_answer": "True",
       "incorrect_answers": [
         "False"
@@ -13,9 +33,9 @@
     },
     {
       "type": "boolean",
-      "difficulty": "easy",
-      "category": "Entertainment: Video Games",
-      "question": "In Pok\u00e9mon Sun and Moon, a male Salandit can evolve to a Salazzle.",
+      "difficulty": "medium",
+      "category": "Geography",
+      "question": "Italy and Ireland are the only countries in Europe that start with the letter I.",
       "correct_answer": "False",
       "incorrect_answers": [
         "True"
@@ -23,39 +43,19 @@
     },
     {
       "type": "boolean",
-      "difficulty": "easy",
-      "category": "Science: Computers",
-      "question": "Time on Computers is measured via the EPOX System.",
-      "correct_answer": "False",
+      "difficulty": "medium",
+      "category": "Animals",
+      "question": "The Platypus is a mammal.",
+      "correct_answer": "True",
       "incorrect_answers": [
-        "True"
+        "False"
       ]
     },
     {
       "type": "boolean",
       "difficulty": "medium",
       "category": "Entertainment: Music",
-      "question": "The band \"Panic! At the Disco\" has released 4 albums total",
-      "correct_answer": "False",
-      "incorrect_answers": [
-        "True"
-      ]
-    },
-    {
-      "type": "boolean",
-      "difficulty": "easy",
-      "category": "Geography",
-      "question": "The Republic of Malta is the smallest microstate worldwide.",
-      "correct_answer": "False",
-      "incorrect_answers": [
-        "True"
-      ]
-    },
-    {
-      "type": "boolean",
-      "difficulty": "hard",
-      "category": "Vehicles",
-      "question": "The term \"GTO\" was originated by Ferrari?",
+      "question": "Ashley Frangipane performs under the stage name Halsey.",
       "correct_answer": "True",
       "incorrect_answers": [
         "False"
@@ -64,8 +64,8 @@
     {
       "type": "boolean",
       "difficulty": "medium",
-      "category": "Sports",
-      "question": "ATP tennis hosted several tournaments on carpet court before being replaced to reduce injuries.",
+      "category": "Entertainment: Music",
+      "question": "The cover of The Beatles album \"Abbey Road\" featured a Volkswagen Beetle in the background.",
       "correct_answer": "True",
       "incorrect_answers": [
         "False"
@@ -74,8 +74,8 @@
     {
       "type": "boolean",
       "difficulty": "easy",
-      "category": "Animals",
-      "question": "Zebras are white with black stripes.",
+      "category": "Entertainment: Video Games",
+      "question": "The game \"Jetpack Joyride\" was created by \"Redbrick Studios\".",
       "correct_answer": "False",
       "incorrect_answers": [
         "True"
@@ -84,8 +84,8 @@
     {
       "type": "boolean",
       "difficulty": "easy",
-      "category": "Mythology",
-      "question": "In the Greek Mythology, the god of war is called Mars.",
+      "category": "History",
+      "question": "The United States of America was the first country to launch a man into space.",
       "correct_answer": "False",
       "incorrect_answers": [
         "True"
@@ -95,10 +95,10 @@
       "type": "boolean",
       "difficulty": "easy",
       "category": "Entertainment: Video Games",
-      "question": "Tony Hawk's extreme sports videogames revolve around performing professional BMX tricks.",
-      "correct_answer": "False",
+      "question": "In Pok\u00e9mon, Bulbasaur is the only starter pokemon that is a Grass/Poison type.",
+      "correct_answer": "True",
       "incorrect_answers": [
-        "True"
+        "False"
       ]
     }
   ]

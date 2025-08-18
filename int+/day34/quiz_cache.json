@@ -7,9 +7,7 @@
       "category": "Entertainment: Video Games",
       "question": "In \"Call Of Duty: World At War\", the first appearance of the \"PPSH-41\" in \"Zombies\" was in the map \"Der Riese\".",
       "correct_answer": "False",
-      "incorrect_answers": [
-        "True"
-      ]
+      "incorrect_answers": ["True"]
     },
     {
       "type": "boolean",
@@ -17,9 +15,7 @@
       "category": "Entertainment: Music",
       "question": "A Saxophone is a brass instrument.",
       "correct_answer": "False",
-      "incorrect_answers": [
-        "True"
-      ]
+      "incorrect_answers": ["True"]
     },
     {
       "type": "boolean",
@@ -27,9 +23,7 @@
       "category": "Entertainment: Television",
       "question": "An episode of \"The Simpsons\" is dedicated to Moe Szyslak's bar rag.",
       "correct_answer": "True",
-      "incorrect_answers": [
-        "False"
-      ]
+      "incorrect_answers": ["False"]
     },
     {
       "type": "boolean",
@@ -37,9 +31,7 @@
       "category": "Geography",
       "question": "Italy and Ireland are the only countries in Europe that start with the letter I.",
       "correct_answer": "False",
-      "incorrect_answers": [
-        "True"
-      ]
+      "incorrect_answers": ["True"]
     },
     {
       "type": "boolean",
@@ -47,9 +39,7 @@
       "category": "Animals",
       "question": "The Platypus is a mammal.",
       "correct_answer": "True",
-      "incorrect_answers": [
-        "False"
-      ]
+      "incorrect_answers": ["False"]
     },
     {
       "type": "boolean",
@@ -57,9 +47,7 @@
       "category": "Entertainment: Music",
       "question": "Ashley Frangipane performs under the stage name Halsey.",
       "correct_answer": "True",
-      "incorrect_answers": [
-        "False"
-      ]
+      "incorrect_answers": ["False"]
     },
     {
       "type": "boolean",
@@ -67,9 +55,7 @@
       "category": "Entertainment: Music",
       "question": "The cover of The Beatles album \"Abbey Road\" featured a Volkswagen Beetle in the background.",
       "correct_answer": "True",
-      "incorrect_answers": [
-        "False"
-      ]
+      "incorrect_answers": ["False"]
     },
     {
       "type": "boolean",
@@ -77,9 +63,7 @@
       "category": "Entertainment: Video Games",
       "question": "The game \"Jetpack Joyride\" was created by \"Redbrick Studios\".",
       "correct_answer": "False",
-      "incorrect_answers": [
-        "True"
-      ]
+      "incorrect_answers": ["True"]
     },
     {
       "type": "boolean",
@@ -87,9 +71,7 @@
       "category": "History",
       "question": "The United States of America was the first country to launch a man into space.",
       "correct_answer": "False",
-      "incorrect_answers": [
-        "True"
-      ]
+      "incorrect_answers": ["True"]
     },
     {
       "type": "boolean",
@@ -97,9 +79,7 @@
       "category": "Entertainment: Video Games",
       "question": "In Pok\u00e9mon, Bulbasaur is the only starter pokemon that is a Grass/Poison type.",
       "correct_answer": "True",
-      "incorrect_answers": [
-        "False"
-      ]
+      "incorrect_answers": ["False"]
     }
   ]
 }

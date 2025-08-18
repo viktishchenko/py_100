@@ -1,0 +1,105 @@
+{
+  "timestamp": "2025-08-18T17:26:18.637866",
+  "questions": [
+    {
+      "type": "boolean",
+      "difficulty": "medium",
+      "category": "General Knowledge",
+      "question": "The vapor produced by e-cigarettes is actually water.",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    },
+    {
+      "type": "boolean",
+      "difficulty": "medium",
+      "category": "Geography",
+      "question": "Vietnam is the only country in the world that starts with V. ",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    },
+    {
+      "type": "boolean",
+      "difficulty": "easy",
+      "category": "Entertainment: Video Games",
+      "question": "In \"Super Mario Bros.\", the clouds and bushes have the same artwork and are just different colors.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "type": "boolean",
+      "difficulty": "medium",
+      "category": "Entertainment: Video Games",
+      "question": "In \"Mother 3,\" the bird on the Ultimate Chimera's head is there only for decoration.",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    },
+    {
+      "type": "boolean",
+      "difficulty": "medium",
+      "category": "Science &amp; Nature",
+      "question": "Male pandas do handstands while urinating on trees. ",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "type": "boolean",
+      "difficulty": "easy",
+      "category": "Entertainment: Video Games",
+      "question": "The main antagonist in the videogame Saints Row IV is an entity known as The Mastermind.",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    },
+    {
+      "type": "boolean",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Linus Torvalds created Linux and Git.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "type": "boolean",
+      "difficulty": "easy",
+      "category": "Entertainment: Film",
+      "question": "The movie \"The Nightmare before Christmas\" was all done with physical objects.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "type": "boolean",
+      "difficulty": "medium",
+      "category": "Geography",
+      "question": "The surface area of Russia is slightly larger than that of the dwarf planet Pluto.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "type": "boolean",
+      "difficulty": "hard",
+      "category": "Entertainment: Music",
+      "question": "Myoui Mina, member of Korean girl group TWICE, was born in South Korea, despite being Japanese.",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    }
+  ]
+}

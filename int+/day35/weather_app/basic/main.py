@@ -42,7 +42,19 @@ def get_data():
     return None
 
 result = get_data()
-if result:
-    print(result)
-else:
-    print("Не удалось получить данные")
+
+
+def check_rain():
+  rain_list = []
+  if result:
+      for data in result['list']:
+        if data['weather'][0]['id'] < 700:
+          rain_list.append({data['dt_txt'] :'get umbrella'})
+          return rain_list
+        else:
+          return print('It\'s OK, no rain today')
+  else:
+      print("Не удалось получить данные")
+
+print(check_rain())
+   

@@ -4,6 +4,9 @@ from pathlib import Path
 from dotenv import load_dotenv
 from requests.exceptions import RequestException
 
+# sms sender twilio
+# from twilio.rest import Client # type: ignore
+
 # Загрузка .env из папки config
 current_dir = Path(__file__).parent  # Директория текущего файла
 env_path = current_dir.parent / 'pro' / 'config' / '.env'  # Поднимаемся на уровень выше
@@ -20,6 +23,11 @@ LATITUDE = os.getenv('LATITUDE')
 LONGITUDE = os.getenv('LONGITUDE')
 API_KYE = os.getenv('API_KEY')
 UNITS = os.getenv('UNITS')
+
+# sms sender twilio
+ACCOUNT_SID = "twilio account sid"
+AUTH_TOKEN = "twilio auth token"
+
 
 parameters = {
   'lat': LATITUDE,
@@ -43,14 +51,22 @@ def get_data():
 
 result = get_data()
 
+def send_rain_sms():
+  # client = Client(ACCOUNT_SID, AUTH_TOKEN)
+
+  # message = client.messages.create(
+  #               body="It's going to rain today. Make sure to bring an ☂",
+  #               from_='your twiilio sample number',
+  #               to='your twilio verified number'
+  #           )
+  # print(message.status)
+  print('Twilio sms was sent!')
 
 def check_rain():
-  rain_list = []
   if result:
       for data in result['list']:
         if data['weather'][0]['id'] < 700:
-          rain_list.append({data['dt_txt'] :'get umbrella'})
-          return rain_list
+          return send_rain_sms()
         else:
           return print('It\'s OK, no rain today')
   else:

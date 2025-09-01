@@ -89,16 +89,16 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 ''')
 
 print('Welcome to Treasure Island')
-first = input('left or right? ')
+first = input('left or right? (l/r)')
 if(first == 'r'): 
   print('Game over')
 elif(first == 'l'):
-  second = input('swim or wait? ')
+  second = input('swim or wait? (s/w) ')
   if(second == 's'):
     print('Game over')
   elif(second == 'w'):
-    third = input('Which door? ')
-    if(third == 'r' or third == 'b'):
+    third = input('Which door? (r/b/y) ')
+    if(third != 'y'):
       print('Game over')
     elif(third == 'y'):
       print('You Win!')

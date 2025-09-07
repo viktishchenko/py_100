@@ -46,16 +46,23 @@ result = response.json()
 
 print(f'result>>> {result}')
 
-# {'exercises': [{'tag_id': 317, 'user_input': 'run', 'duration_min': 31.08, 'met': 9.8, 'nf_calories': 329.97, 'photo': {'highres': 'https://d2xdmhkmkbyw75.cloudfront.net/exercise/317_highres.jpg', 'thumb': 'https://d2xdmhkmkbyw75.cloudfront.net/exercise/317_thumb.jpg', 'is_user_uploaded': False}, 'compendium_code': 12050, 'name': 'running', 'description': None, 'benefits': None}]}
-
-# {'exercises': [{'tag_id': 187, 'user_input': 'jump', 'duration_min': 15, 'met': 3.5, 'nf_calories': 56.88, 'photo': {'highres': 'https://d2xdmhkmkbyw75.cloudfront.net/exercise/187_highres.jpg', 'thumb': 'https://d2xdmhkmkbyw75.cloudfront.net/exercise/187_thumb.jpg', 'is_user_uploaded': False}, 'compendium_code': 15700, 'name': 'trampoline', 'description': None, 'benefits': None}]}
-
 # {'exercises': [{'tag_id': 317, 'user_input': 'run', 'duration_min': 31.08, 'met': 9.8, 'nf_calories': 329.97, 'photo': {'highres': 'https://d2xdmhkmkbyw75.cloudfront.net/exercise/317_highres.jpg', 'thumb': 'https://d2xdmhkmkbyw75.cloudfront.net/exercise/317_thumb.jpg', 'is_user_uploaded': False}, 'compendium_code': 12050, 'name': 'running', 'description': None, 'benefits': None}, {'tag_id': 187, 'user_input': 'jump', 'duration_min': 15, 'met': 3.5, 'nf_calories': 56.88, 'photo': {'highres': 'https://d2xdmhkmkbyw75.cloudfront.net/exercise/187_highres.jpg', 'thumb': 'https://d2xdmhkmkbyw75.cloudfront.net/exercise/187_thumb.jpg', 'is_user_uploaded': False}, 'compendium_code': 15700, 'name': 'trampoline', 'description': None, 'benefits': None}]}
 
 today_date = datetime.now().strftime("%d/%m/%Y")
 now_time = datetime.now().strftime("%X")
 
-sheet_endpoint = "https://api.sheety.co/6f3f1d7d2037bdb6ca86fa889e9ef043/copyOfMyWorkouts/workouts"
+sheet_endpoint = os.getenv("SHEETY_ENDPOINT")
+
+# Sheety API Call & Authentication
+# for exercise in result["exercises"]:
+#     sheet_inputs = {
+#         GOOGLE_SHEET_NAME: {
+#             "date": today_date,
+#             "time": now_time,
+#             "exercise": exercise["name"].title(),
+#             "duration": exercise["duration_min"],
+#             "calories": exercise["nf_calories"]
+#         }
 
 for exercise in result["exercises"]:
     sheet_inputs = {
@@ -71,15 +78,6 @@ for exercise in result["exercises"]:
 #No Authentication  
 # sheet_response = requests.post(sheet_endpoint, json=sheet_inputs)
 
-# {
-#   "errors": [
-#     {
-#       "detail": "Unathorized. A valid 'Authorization' header is required to access this API."
-#     }
-#   ]
-# }
-
-
 #Basic Authentication
 # sheet_response = requests.post(
 #   sheet_endpoint, 
@@ -92,23 +90,26 @@ for exercise in result["exercises"]:
 
 #Bearer Token Authentication
 bearer_headers = {
-"Authorization": f"Bearer {TOKEN}"
+    "Authorization": f"Bearer {os.getenv('SHEETY_BEARER_TOKEN')}"
 }
-
 sheet_response = requests.post(
-    sheet_endpoint, 
-    json=sheet_inputs, 
+    sheet_endpoint,
+    json=sheet_inputs,
     headers=bearer_headers
-)
+)    
+    
+print(f"Sheety Response: \n {sheet_response.text}")
 
-print(f'sheet_response.text>>> {sheet_response.text}')
-
-# {
-#   "errors": [
-#     {
-#       "detail": "Unathorized. A valid 'Authorization' header is required to access this API."
-#     }
-#   ]
+# Sheety Response: 
+#  {
+#   "workout": {
+#     "date": "07/09/2025",
+#     "time": "10:09:02",
+#     "exercise": "Trampoline",
+#     "duration": 15,
+#     "calories": 56.88,
+#     "id": 3
+#   }
 # }
 
 

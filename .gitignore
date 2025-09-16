@@ -28,5 +28,3 @@ build/
 # Sensitive information (example - adjust as needed)
 .env
 config.ini
-
-day39

@@ -9,9 +9,7 @@ BOT_TOKEN = os.getenv('BOT_TOKEN')
 BOT_CHATID = os.getenv('BOT_CHATID')
 
 # response = requests.get(f"https://api.telegram.org/bot{BOT_TOKEN}/getUpdates")
-# print(response.json())
-
-# {'ok': True, 'result': [{'update_id': 494992877, 'message': {'message_id': 7, 'from': {'id': 6361287851, 'is_bot': False, 'first_name': 'Vik', 'last_name': 'T', 'username': 'viktishchenko', 'language_code': 'ru'}, 'chat': {'id': 6361287851, 'first_name': 'Vik', 'last_name': 'T', 'username': 'viktishchenko', 'type': 'private'}, 'date': 1757764163, 'text': 'halo'}}]}
+# # print(response.json())
 
 
 class NotificationManager:

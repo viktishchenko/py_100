@@ -10,48 +10,49 @@ datas22 = [
   {
     "city": "Paris",
     "iataCode": "PAR",
-    "prices": 54
+    "lowestPrice": 54
   },
   {
     "city": "Frankfurt",
     "iataCode": "FRA",
-    "prices": 230
-    # "prices": 42
+    "lowestPrice": 230
+    # "lowestPrice": 42
   },
   {
     "city": "Tokyo",
     "iataCode": "HND",
-    "prices": 485
+    "lowestPrice": 485
   },
   {
     "city": "Hong Kong",
     "iataCode": "HKG",
-    "prices": 551
+    "lowestPrice": 551
   },
   {
     "city": "Istanbul",
     "iataCode": "IST",
-    "prices": 95
+    "lowestPrice": 95
   },
   {
     "city": "Kuala Lumpur",
     "iataCode": "KUL",
-    "prices": 414
+    "lowestPrice": 414
   },
   {
     "city": "New York",
     "iataCode": "NYC",
-    "prices": 240
+    "lowestPrice": 740
+    # "lowestPrice": 240
   },
   {
     "city": "San Francisco",
     "iataCode": "SFO",
-    "prices": 260
+    "lowestPrice": 260
   },
   {
     "city": "Dublin",
     "iataCode": "DUB",
-    "prices": 378
+    "lowestPrice": 378
   }
 ]
 
@@ -86,6 +87,26 @@ for destination in sheet_data:
 
 
     cheapest_flight = flight_search.find_cheapest_flight(flight)
-    print(f"{destination['city']}: { cheapest_flight.lowest_price if type(cheapest_flight.lowest_price) == str else ('£ ' + str(cheapest_flight.lowest_price))}")
+    # print(f"{destination['city']}: { cheapest_flight.lowest_price if type(cheapest_flight.lowest_price) == str else ('£ ' + str(cheapest_flight.lowest_price))}")
     # Slowing down requests to avoid rate limit
     t.sleep(2)
+
+    if cheapest_flight.lowest_price != "N/A" and cheapest_flight.lowest_price < destination["lowestPrice"]:
+    #   print(f"Lower price flight found to {destination['city']}!")
+      # notification_manager.send_sms(
+      #     message_body=f"Low price alert! Only £{cheapest_flight.price} to fly "
+      #                  f"from {cheapest_flight.origin_airport} to {cheapest_flight.destination_airport}, "
+      #                  f"on {cheapest_flight.out_date} until {cheapest_flight.return_date}."
+      # )
+      # SMS not working? Try whatsapp instead.
+      # notification_manager.send_whatsapp(
+      #     message_body=f"Low price alert! Only £{cheapest_flight.price} to fly "
+      #                   f"from {cheapest_flight.origin_airport} to {cheapest_flight.destination_airport}, "
+      #                   f"on {cheapest_flight.out_date} until {cheapest_flight.return_date}."
+      # )
+      # Anithing not working? Try telegas instead.
+      notification_manager.telegram_bot_send_text(
+      f"Low price alert! Only £{cheapest_flight.lowest_price} to fly from {cheapest_flight.origin} "
+      f"to {cheapest_flight.destination}, "
+      f"from {cheapest_flight.out_date} to {cheapest_flight.return_date}."
+      )
